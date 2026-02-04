@@ -1,3 +1,4 @@
+![E-Commerce Microservice Platform](assets/ecom4z-banner.png)
 # 🛒 E-Commerce Microservice Platform
 
 A **production-ready e-commerce platform** built with **Spring Boot microservices**, **Kafka event-driven architecture**, **PostgreSQL**, and a modern **Web UI**.  
