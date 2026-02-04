@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: notification-service
+
+spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:kafka:9092}
+    consumer:
+      group-id: notification-service
+      enable-auto-commit: false
+      auto-offset-reset: earliest
+
+app:
+  kafka:
+    topics:
+      orderEvents: order.events.v1
+      paymentEvents: payment.events.v1
+
+app:
+  mail:
+    enabled: ${MAIL_ENABLED:false}

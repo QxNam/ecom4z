@@ -1,0 +1,3 @@
+app:
+  mail:
+    enabled: false

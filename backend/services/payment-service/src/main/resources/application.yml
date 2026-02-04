@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: payment-service
+
+  datasource:
+    hikari:
+      maximum-pool-size: ${DB_POOL_SIZE:10}
+
+  jpa:
+    open-in-view: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:kafka:9092}
+    consumer:
+      group-id: payment-service
+      enable-auto-commit: false
+
+app:
+  kafka:
+    topics:
+      paymentEvents: payment.events.v1
+      orderEvents: order.events.v1

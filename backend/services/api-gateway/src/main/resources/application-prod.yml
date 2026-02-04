@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: identity
+          uri: http://identity-service.default.svc.cluster.local:8080
+          predicates:
+            - Path=/api/v1/identity/**
+          filters:
+            - StripPrefix=3
+        # ... tương tự các service khác
+
+# Security: Gateway nên validate JWT (recommended)
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${OAUTH2_ISSUER_URI}

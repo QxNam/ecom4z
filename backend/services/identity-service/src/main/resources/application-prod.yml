@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: ${IDENTITY_DB_URL}
+    username: ${IDENTITY_DB_USER}
+    password: ${IDENTITY_DB_PASS}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+  flyway:
+    baseline-on-migrate: true
+
+# JWT config (nếu identity phát token thì đây là auth-server; nếu chỉ là resource-server thì set issuer-uri)
+security:
+  jwt:
+    access-token-minutes: ${JWT_ACCESS_MINUTES:15}
+    refresh-token-days: ${JWT_REFRESH_DAYS:7}

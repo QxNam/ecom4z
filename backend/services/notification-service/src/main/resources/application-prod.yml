@@ -1,0 +1,13 @@
+app:
+  mail:
+    enabled: true
+
+spring:
+  mail:
+    host: ${SMTP_HOST}
+    port: ${SMTP_PORT:587}
+    username: ${SMTP_USER}
+    password: ${SMTP_PASS}
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true

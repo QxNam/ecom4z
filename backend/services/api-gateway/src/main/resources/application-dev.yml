@@ -1,0 +1,49 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: identity
+          uri: http://identity-service:8080
+          predicates:
+            - Path=/api/v1/identity/**
+          filters:
+            - StripPrefix=3
+
+        - id: catalog
+          uri: http://catalog-service:8080
+          predicates:
+            - Path=/api/v1/catalog/**
+          filters:
+            - StripPrefix=3
+
+        - id: cart
+          uri: http://cart-service:8080
+          predicates:
+            - Path=/api/v1/cart/**
+          filters:
+            - StripPrefix=3
+
+        - id: order
+          uri: http://order-service:8080
+          predicates:
+            - Path=/api/v1/orders/**
+          filters:
+            - StripPrefix=3
+
+        - id: payment
+          uri: http://payment-service:8080
+          predicates:
+            - Path=/api/v1/payment/**
+          filters:
+            - StripPrefix=3
+
+# (tuỳ) CORS cho local dev
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"

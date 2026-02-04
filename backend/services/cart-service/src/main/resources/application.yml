@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: cart-service
+
+spring:
+  data:
+    redis:
+      timeout: 2s
+
+app:
+  cart:
+    ttl-days: 30
